@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 import { getFeedback, postFeedback } from '../../feedbackApi/feedback.api';
@@ -8,6 +9,7 @@ import Understanding from '../understanding/understanding';
 import Support from '../support/support';
 import Comments from '../comments/comments';
 import Feedback from '../Feedback/Feedback';
+import Success from '../Success/Success';
 
 function App() {
   return (
@@ -17,11 +19,31 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <main>
-        <Feeling />
-        <Understanding />
-        <Support />
-        <Comments />
-        <Feedback />
+        <Router>
+          <Route path="/" exact>
+            <Feeling />
+          </Route>
+
+          <Route path="/understanding" exact>
+            <Understanding />
+          </Route>
+
+          <Route path="/support" exact>
+            <Support />
+          </Route>
+
+          <Route path="/comments" exact>
+            <Comments />
+          </Route>
+
+          <Route path="/feedback" exact>
+            <Feedback />
+          </Route>
+
+          <Route path="/success" exact>
+            <Success />
+          </Route>
+        </Router>
       </main>
     </div>
   );
