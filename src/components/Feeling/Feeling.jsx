@@ -6,10 +6,9 @@ import axios from 'axios';
 function Feeling() {
   const history = useHistory();
   const dispatch = useDispatch();
-  let feeling = useSelector((store) => store.feeling);
   const [inputFeeling, setInputFeeling] = useState('');
 
-  const handleClickNextPage = (event) => {
+  const handleClickToUnderstanding = (event) => {
     event.preventDefault();
     dispatch({
       type: 'FEELING_LEVEL',
@@ -17,8 +16,6 @@ function Feeling() {
       });
     // Navigate with React Router Dom
     history.push('/understanding');
-    // clear form fields
-    // setInputFeeling('');
   };
 
   const handleChangeFeeling = (event) => {
@@ -37,7 +34,7 @@ function Feeling() {
         onChange={handleChangeFeeling}
         data-testid="input"
       />
-      <button type="button" onClick={handleClickNextPage} data-testid="next">
+      <button type="button" onClick={handleClickToUnderstanding} data-testid="next">
         Next
       </button>
     </form>

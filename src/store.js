@@ -18,7 +18,7 @@ function feeling(state = 0, action) {
 // Reducer - Understanding
 function understanding(state = 0, action) {
   if (action.type === 'UNDERSTANDING_LEVEL'){
-    return state;
+    return action.payload;
   }
   return state;
 };
