@@ -4,19 +4,19 @@ import ReactDOM from 'react-dom/client';
 import App from './components/App/App'
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 // Reducer - Feeling
-function feeling(state=[], action) {
+function feeling(state = 0, action) {
   if (action.type === 'FEELING_LEVEL'){
-    return state;
+    console.log('in products reducer', action.payload)
+    return action.payload;
   }
   return state;
 };
 
 // Reducer - Understanding
-function understanding(state=[], action) {
+function understanding(state = 0, action) {
   if (action.type === 'UNDERSTANDING_LEVEL'){
     return state;
   }
@@ -24,7 +24,7 @@ function understanding(state=[], action) {
 };
 
 // Reducer - Support
-function support(state=[], action) {
+function support(state = 0, action) {
   if (action.type === 'SUPPORT_LEVEL'){
     return state;
   }
@@ -32,7 +32,7 @@ function support(state=[], action) {
 };
 
 // Reducer - Comments
-function comments(state='', action) {
+function comments(state = 'lost and confused', action) {
   if (action.type === 'COMMENTS'){
     return state;
   }
@@ -41,7 +41,7 @@ function comments(state='', action) {
 
 
 // store - combine reducers
-const storeInstance = createStore(
+export const store = () => createStore(
   combineReducers({
     feeling,
     understanding,
@@ -52,10 +52,10 @@ const storeInstance = createStore(
   applyMiddleware(logger)
 );
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={storeInstance}>
-      <App />
-    </Provider>
-  </React.StrictMode>
-);
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//       <App />
+//     </Provider>
+//   </React.StrictMode>
+// );
