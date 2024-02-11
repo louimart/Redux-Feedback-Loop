@@ -26,7 +26,7 @@ function understanding(state = 0, action) {
 // Reducer - Support
 function support(state = 0, action) {
   if (action.type === 'SUPPORT_LEVEL'){
-    return state;
+    return action.payload;
   }
   return state;
 };
