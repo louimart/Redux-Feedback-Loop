@@ -34,7 +34,7 @@ function support(state = 0, action) {
 // Reducer - Comments
 function comments(state = 'lost and confused', action) {
   if (action.type === 'COMMENTS'){
-    return state;
+    return action.payload;
   }
   return state;
 };
