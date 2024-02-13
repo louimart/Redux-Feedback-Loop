@@ -24,12 +24,14 @@ function Feeling() {
 
   return (
     <form>
-      <label for="feeling">
+      <label>
         <h1>How are you feeling today?</h1>
       </label>
       <input
         type="number"
         name="feeling"
+        min="0"
+        max="5"
         value={inputFeeling}
         onChange={handleChangeFeeling}
         data-testid="input"
